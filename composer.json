@@ -1,0 +1,21 @@
+{
+    "name": "grikdotnet/monolith-decomposition",
+    "type": "project",
+    "require": {
+        "php": "^8.0",
+        "symfony/dependency-injection": "^5.2",
+        "doctrine/annotations": "^1.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acme\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grigori Kochanov",
+            "email": "grigori@grik.net"
+        }
+    ]
+}
