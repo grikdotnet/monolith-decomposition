@@ -2,14 +2,15 @@
     "name": "grikdotnet/monolith-decomposition",
     "type": "project",
     "require": {
-        "php": "^8.0",
-        "symfony/dependency-injection": "^5.2",
-        "doctrine/annotations": "^1.11"
+        "php": "^7.4"
     },
     "autoload": {
         "psr-4": {
             "Acme\\": "src/"
-        }
+        },
+        "classmap": [
+            "src/BaseModel.php"
+        ]
     },
     "license": "MIT",
     "authors": [

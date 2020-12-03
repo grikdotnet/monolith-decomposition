@@ -4,11 +4,11 @@
 namespace Acme;
 
 
-class ImageUploadController
+class ImageResizeController
 {
     public function __construct()
     {
-        $Image = new Image($_FILES['input_name']['tmp_name']);
+        $Image = new Image($_GET['id']?:null);
         // other code skipped ...
     }
 }
