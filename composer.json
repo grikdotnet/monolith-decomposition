@@ -2,7 +2,9 @@
     "name": "grikdotnet/monolith-decomposition",
     "type": "project",
     "require": {
-        "php": "^7.4"
+        "php": "^8.0",
+        "symfony/dependency-injection": "^5.2",
+        "symfony/config": "^5.2"
     },
     "autoload": {
         "psr-4": {

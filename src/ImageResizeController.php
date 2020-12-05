@@ -6,9 +6,13 @@ namespace Acme;
 
 class ImageResizeController
 {
-    public function __construct()
+    public function __construct(
+        public Image $image
+    ){
+    }
+
+    public function action(?string $id)
     {
-        $Image = new Image($_GET['id']?:null);
-        // other code skipped ...
+        $this->image->load($id);
     }
 }

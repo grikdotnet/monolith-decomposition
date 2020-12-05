@@ -8,7 +8,8 @@ namespace Acme;
  */
 class Image extends \BaseModel
 {
-    public function __construct($filename)
+
+    public function load(mixed $tmp_name)
     {
         // calls to inherited methods
         $this->foo();
