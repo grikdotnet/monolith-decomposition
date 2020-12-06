@@ -6,6 +6,7 @@
  */
 class BaseModel
 {
+    protected int $x;
     /**
      *
      */
