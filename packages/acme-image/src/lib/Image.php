@@ -9,7 +9,7 @@ namespace Acme\Image\lib;
  * @internal
  * @package Acme\Image
  */
-class Image extends BaseModel
+class Image extends \BaseModel
 {
     public function load($tmp_name)
     {
