@@ -2,19 +2,21 @@
 
 
 /**
- * A base class to show inheritance decomposition
+ * A sample of coupling through inheritance
  */
-class BaseModel
+abstract class BaseModel
 {
     protected int $x;
-    /**
-     *
-     */
-    protected function foo()
+
+    abstract protected function foo();
+
+    public function __construct()
     {
+        // calling a method defined in an Image class
+        $this->foo();
     }
 
-    static function bar()
+    final protected function bar()
     {
     }
 }

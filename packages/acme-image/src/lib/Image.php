@@ -3,18 +3,24 @@
 namespace Acme\Image\lib;
 
 /**
- * This class can now be changed without breaking the application
- * because API is fixed in the ImageService class
+ * This class is tightly coupled with \BaseModel
  *
  * @internal
  * @package Acme\Image
  */
 class Image extends \BaseModel
 {
+
+    /**
+     * called from the \BaseModel
+     */
+    protected function foo()
+    {
+        //an inherited final method
+        $this->bar();
+    }
+
     public function load($tmp_name)
     {
-        // calls to inherited methods
-        $this->foo();
-        parent::bar();
     }
 }
