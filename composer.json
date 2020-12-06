@@ -4,7 +4,8 @@
     "require": {
         "php": "^8.0",
         "symfony/dependency-injection": "^5.2",
-        "symfony/config": "^5.2"
+        "symfony/config": "^5.2",
+        "acme/image": "^0.1"
     },
     "autoload": {
         "psr-4": {
@@ -14,7 +15,12 @@
             "src/BaseModel.php"
         ]
     },
-    "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./packages/acme-image"
+        }
+    ],    "license": "MIT",
     "authors": [
         {
             "name": "Grigori Kochanov",

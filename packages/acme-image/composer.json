@@ -1,0 +1,19 @@
+{
+  "name": "acme/image",
+  "description": "a demo module for splitting a monolith application",
+  "license": "proprietary",
+  "version": "0.1",
+  "authors": [
+    {
+      "name": "Grigori",
+      "email": "public@grik.net"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Acme\\Image\\": "src/"
+    }
+  }
+}

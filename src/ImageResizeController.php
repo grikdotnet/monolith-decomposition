@@ -4,10 +4,12 @@
 namespace Acme;
 
 
+use Acme\Image\Contracts\ImageInterface;
+
 class ImageResizeController
 {
     public function __construct(
-        public Image $image
+        public ImageInterface $image
     ){
     }
 
