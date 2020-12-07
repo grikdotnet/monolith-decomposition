@@ -1,8 +1,11 @@
 {
   "name": "acme/contracts",
-  "description": "a package for contracts between application and acme/image",
+  "description": "A package for contracts between application and acme/image",
   "license": "MIT",
   "version": "0.1",
+  "require": {
+    "php": "^8.0"
+  },
   "authors": [
     {
       "name": "Grigori Kochanov",

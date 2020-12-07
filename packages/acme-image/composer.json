@@ -10,6 +10,9 @@
     }
   ],
   "require": {
+    "php": "^8.0",
+    "symfony/dependency-injection": "^5.2",
+    "acme/contracts": "0.1"
   },
   "autoload": {
     "psr-4": {
