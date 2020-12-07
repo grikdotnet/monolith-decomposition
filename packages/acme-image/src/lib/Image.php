@@ -2,25 +2,29 @@
 
 namespace Acme\Image\lib;
 
+use Acme\Contracts\BaseModelInterface;
+
 /**
- * This class is tightly coupled with \BaseModel
+ * This class is the code is not coupled with a \BaseModel class anymore
  *
  * @internal
  * @package Acme\Image
  */
-class Image extends \BaseModel
+class Image
 {
-
-    /**
-     * called from the \BaseModel
-     */
-    protected function foo()
+    public function __construct(private BaseModelInterface $baseModel)
     {
-        //an inherited final method
-        $this->bar();
     }
 
-    public function load($tmp_name)
+    /**
+     * called from the \BaseModel through adapters
+     */
+    public function foo()
+    {
+        $this->baseModel->callBar();
+    }
+
+    public function load($id)
     {
     }
 }

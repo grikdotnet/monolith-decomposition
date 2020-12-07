@@ -2,7 +2,16 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Acme\Image\{Contracts\ImageInterface,ImageService};
+use Acme\BaseModelAdapter;
+use Acme\ImageResizeController;
+use Acme\Contracts\{
+    FooImplementationInterface,
+    BaseModelInterface,
+    ImageInterface
+};
+use Acme\Image\ImageService;
+
+use Symfony\Component\DependencyInjection\Reference;
 
 return function(ContainerConfigurator $configurator) {
     /**
@@ -10,8 +19,11 @@ return function(ContainerConfigurator $configurator) {
      */
     $services = $configurator->services()->defaults()->autowire()->public();
 
-    $services->load('Acme\\', './src/*')
-        ->exclude('./src/BaseModel.php');
+    $services->set(ImageResizeController::class);
 
     $services->set(ImageInterface::class, ImageService::class);
+
+    $services->set(BaseModelInterface::class, BaseModelAdapter::class)
+        ->bind(FooImplementationInterface::class, service(ImageInterface::class))
+        ;
 };

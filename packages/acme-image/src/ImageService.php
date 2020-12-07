@@ -3,8 +3,13 @@ declare(strict_types=1);
 
 namespace Acme\Image;
 
-use Acme\Image\Contracts\ImageInterface;
+use Acme\Contracts\{
+    FooImplementationInterface,
+    BaseModelInterface,
+    ImageInterface
+};
 use Acme\Image\lib\Image;
+use Symfony\Contracts\Service\Attribute\Required;
 
 /**
  * Class ImageService provides an API for the application.
@@ -14,7 +19,7 @@ use Acme\Image\lib\Image;
  * @package Acme\Image
  * @api
  */
-class ImageService  implements ImageInterface
+final class ImageService  implements ImageInterface, FooImplementationInterface
 {
 
     /**
@@ -22,16 +27,25 @@ class ImageService  implements ImageInterface
      */
     private Image $imageLib;
 
-    public function __construct()
+    /**
+     * @param string $id
+     * @return mixed
+     */
+    public function load(string $id): mixed
     {
-        $this->imageLib = new Image();
+        return $this->imageLib->load($id);
     }
 
-    /**
-     * @param string $tmp_name
-     */
-    public function load(string $tmp_name): mixed
+    #[Required]
+    public function withBaseModel(BaseModelInterface $baseModel): void
     {
-        return $this->imageLib->load($tmp_name);
+        $this->imageLib = new Image($baseModel);
+        $baseModel->init();
     }
+
+    public function doFoo(): mixed
+    {
+        return $this->imageLib->foo();
+    }
+
 }
