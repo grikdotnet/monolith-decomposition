@@ -3,6 +3,7 @@
 namespace Acme\Image\lib;
 
 use Acme\Contracts\BaseModelInterface;
+use Acme\Helper;
 
 /**
  * This class is the code is not coupled with a \BaseModel class anymore
@@ -21,10 +22,15 @@ class Image
      */
     public function foo()
     {
-        $this->baseModel->callBar();
+        Helper::bar();
     }
 
     public function load($id)
     {
+    }
+
+    public static function answerUltimateQuestion(): int
+    {
+        return 42;
     }
 }

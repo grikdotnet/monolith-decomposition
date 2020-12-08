@@ -14,6 +14,7 @@ class ImageResizeController
 
     public function action(?string $id)
     {
+        $answer = Acme\Image\lib\Image::answerUltimateQuestion();
         $this->image->load($id);
     }
 }
