@@ -14,7 +14,8 @@ class ImageResizeController
 
     public function action(?string $id)
     {
-        $answer = Acme\Image\lib\Image::answerUltimateQuestion();
+        //now the code is not bound to the Acme\Image\lib\Image class
+        $answer = $this->image::answerUltimateQuestion();
         $this->image->load($id);
     }
 }

@@ -48,4 +48,12 @@ final class ImageService  implements ImageInterface, FooImplementationInterface
         return $this->imageLib->foo();
     }
 
+    /**
+     * Example of adding the static method to the public API
+     * @return int
+     */
+    public static function answerUltimateQuestion(): int
+    {
+        return Image::answerUltimateQuestion();
+    }
 }
