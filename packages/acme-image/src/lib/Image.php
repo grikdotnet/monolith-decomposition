@@ -3,6 +3,7 @@
 namespace Acme\Image\lib;
 
 use Acme\Contracts\BaseModelInterface;
+use Acme\Contracts\HelperBridgeInterface;
 use Acme\Helper;
 
 /**
@@ -13,8 +14,10 @@ use Acme\Helper;
  */
 class Image
 {
-    public function __construct(private BaseModelInterface $baseModel)
-    {
+    public function __construct(
+        private BaseModelInterface $baseModel,
+        private HelperBridgeInterface $helper
+    ){
     }
 
     /**
@@ -22,7 +25,7 @@ class Image
      */
     public function foo()
     {
-        Helper::bar();
+        $this->helper::bar();
     }
 
     public function load($id)

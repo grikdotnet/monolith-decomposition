@@ -2,13 +2,12 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Acme\BaseModelAdapter;
-use Acme\ImageResizeController;
-use Acme\Contracts\{
-    FooImplementationInterface,
-    BaseModelInterface,
-    ImageInterface
+use Acme\{
+    BaseModelAdapter,
+    Helper,
+    ImageResizeController
 };
+use Acme\Contracts\{FooImplementationInterface, BaseModelInterface, HelperBridgeInterface, ImageInterface};
 use Acme\Image\ImageService;
 
 use Symfony\Component\DependencyInjection\Reference;
@@ -26,4 +25,5 @@ return function(ContainerConfigurator $configurator) {
     $services->set(BaseModelInterface::class, BaseModelAdapter::class)
         ->bind(FooImplementationInterface::class, service(ImageInterface::class))
         ;
+    $services->set(HelperBridgeInterface::class, Helper::class);
 };

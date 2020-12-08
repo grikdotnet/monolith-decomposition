@@ -3,11 +3,7 @@ declare(strict_types=1);
 
 namespace Acme\Image;
 
-use Acme\Contracts\{
-    FooImplementationInterface,
-    BaseModelInterface,
-    ImageInterface
-};
+use Acme\Contracts\{FooImplementationInterface, BaseModelInterface, HelperBridgeInterface, ImageInterface};
 use Acme\Image\lib\Image;
 use Symfony\Contracts\Service\Attribute\Required;
 
@@ -21,6 +17,10 @@ use Symfony\Contracts\Service\Attribute\Required;
  */
 final class ImageService  implements ImageInterface, FooImplementationInterface
 {
+
+    public function __construct(private HelperBridgeInterface $helper)
+    {
+    }
 
     /**
      * @var Image
@@ -39,7 +39,7 @@ final class ImageService  implements ImageInterface, FooImplementationInterface
     #[Required]
     public function withBaseModel(BaseModelInterface $baseModel): void
     {
-        $this->imageLib = new Image($baseModel);
+        $this->imageLib = new Image($baseModel, $this->helper);
         $baseModel->init();
     }
 
