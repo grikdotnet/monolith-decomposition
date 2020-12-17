@@ -14,26 +14,8 @@ use Acme\Helper;
  */
 class Image
 {
-    public function __construct(
-        private BaseModelInterface $baseModel,
-        private HelperBridgeInterface $helper
-    ){
+    public function __construct(){
     }
 
-    /**
-     * called from the \BaseModel through adapters
-     */
-    public function foo()
-    {
-        $this->helper::bar();
-    }
 
-    public function load($id)
-    {
-    }
-
-    public static function answerUltimateQuestion(): int
-    {
-        return 42;
-    }
 }

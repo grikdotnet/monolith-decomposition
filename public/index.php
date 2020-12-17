@@ -18,10 +18,13 @@ $containerBuilder->compile();
 // file_put_contents($file, (new PhpDumper($containerBuilder))->dump());
 
 try {
+    /**
+     * @var $controller \Acme\ImageResizeController
+     */
     $controller = $containerBuilder->get(\Acme\ImageResizeController::class);
 } catch (Exception $e) {
     echo $e->getMessage(),"\n",$e->getTraceAsString();
     exit;
 }
 
-$controller->action($_GET['id']?:null);
+$controller->getAvatar();

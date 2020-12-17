@@ -1,21 +1,19 @@
 <?php
 
-
 namespace Acme;
-
 
 use Acme\Contracts\ImageInterface;
 
 class ImageResizeController
 {
-    public function __construct(public ImageInterface $image)
+    public function __construct(public ImageInterface $image, private User $user)
     {
+        $this->user->setId((int)$_GET['id']??42);
     }
 
-    public function action(?string $id)
+    public function getAvatar()
     {
-        //now the code is not bound to the Acme\Image\lib\Image class
-        $answer = $this->image::answerUltimateQuestion();
-        $this->image->load($id);
+        $imageResizer = new ImageResizer();
+        return $imageResizer->getUserAvatar($this->user);
     }
 }

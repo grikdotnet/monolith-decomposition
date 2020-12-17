@@ -1,3 +1,3 @@
-GET http://localhost:8080/?id=99
+GET http://localhost:8080/avatar/?id=99
 Accept: application/json
 

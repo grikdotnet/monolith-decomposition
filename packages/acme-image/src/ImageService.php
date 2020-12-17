@@ -3,9 +3,8 @@ declare(strict_types=1);
 
 namespace Acme\Image;
 
-use Acme\Contracts\{FooImplementationInterface, BaseModelInterface, HelperBridgeInterface, ImageInterface};
+use Acme\Contracts\ImageInterface;
 use Acme\Image\lib\Image;
-use Symfony\Contracts\Service\Attribute\Required;
 
 /**
  * Class ImageService provides an API for the application.
@@ -15,45 +14,17 @@ use Symfony\Contracts\Service\Attribute\Required;
  * @package Acme\Image
  * @api
  */
-final class ImageService  implements ImageInterface, FooImplementationInterface
+final class ImageService  implements ImageInterface
 {
-
-    public function __construct(private HelperBridgeInterface $helper)
-    {
-    }
-
     /**
      * @var Image
      */
     private Image $imageLib;
 
-    /**
-     * @param string $id
-     * @return mixed
-     */
-    public function load(string $id): mixed
+    public function __construct()
     {
-        return $this->imageLib->load($id);
+        $this->imageLib = new Image();
+
     }
 
-    #[Required]
-    public function withBaseModel(BaseModelInterface $baseModel): void
-    {
-        $this->imageLib = new Image($baseModel, $this->helper);
-        $baseModel->init();
-    }
-
-    public function doFoo(): mixed
-    {
-        return $this->imageLib->foo();
-    }
-
-    /**
-     * Example of adding the static method to the public API
-     * @return int
-     */
-    public static function answerUltimateQuestion(): int
-    {
-        return Image::answerUltimateQuestion();
-    }
 }

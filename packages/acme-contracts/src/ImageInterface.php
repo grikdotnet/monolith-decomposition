@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Acme\Contracts;
 
 /**
@@ -9,5 +8,4 @@ namespace Acme\Contracts;
  */
 interface ImageInterface
 {
-    public function load(string $id): mixed;
 }
