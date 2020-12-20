@@ -16,7 +16,10 @@ return function(ContainerConfigurator $configurator) {
 
     $services->set(ImageResizeController::class);
 
-    $services->set(ImageInterface::class, ImageService::class);
+    $services->set(ImageInterface::class, ImageService::class)
+        ->bind('$AVATAR_SIZE',User::AVATAR_SIZE);
+    // in YAML it would be
+    // array $AVATAR_SIZE: !php/const User::AVATAR_SIZE
 
     $services->set(User::class);
 };

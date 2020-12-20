@@ -11,9 +11,8 @@ class ImageResizeController
         $this->user->setId((int)$_GET['id']??42);
     }
 
-    public function getAvatar()
+    public function getAvatar(): string
     {
-        $imageResizer = new ImageResizer();
-        return $imageResizer->getUserAvatar($this->user);
+        return $this->image->getUserAvatar($this->user->getId());
     }
 }
