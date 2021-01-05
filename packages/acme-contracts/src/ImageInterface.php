@@ -8,6 +8,5 @@ namespace Acme\Contracts;
  */
 interface ImageInterface
 {
-    public function __construct(array $AVATAR_SIZE);
-    public function getUserAvatar(int $userId): string;
+    public function __construct();
 }

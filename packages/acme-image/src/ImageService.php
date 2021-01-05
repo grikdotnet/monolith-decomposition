@@ -23,15 +23,7 @@ final class ImageService  implements ImageInterface
 
     private int $avatarWidth, $avatarHeight;
 
-    public function __construct(array $AVATAR_SIZE)
+    public function __construct()
     {
-        $this->imageLib = new Image();
-        [$this->avatarWidth, $this->avatarHeight] = $AVATAR_SIZE;
-    }
-
-    public function getUserAvatar(int $userId): string
-    {
-        $file = '../storage/'.$userId.'jpg';
-        return $this->imageLib->generateThumbnail($file, $this->avatarWidth, $this->avatarHeight);
     }
 }
