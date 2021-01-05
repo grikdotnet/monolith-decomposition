@@ -2,13 +2,12 @@
 
 namespace Acme;
 
+use Acme\Image\ImageService;
+
 class ImageController
 {
-    private ImageLib $imageLib;
-
-    public function __construct()
+    public function __construct(private ImageService $imageLib)
     {
-        $this->imageLib = new ImageLib();
     }
 
     public function upload()
