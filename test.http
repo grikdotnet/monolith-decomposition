@@ -1,3 +1,10 @@
-GET http://localhost:8080/avatar/?id=99
-Accept: application/json
+### This is a JetBrains acceptance test file
+### run `php -S 127.0.0.1:8080 .\index.php` in a public/ folder to start a local server for this test
+POST http://localhost:8080/upload/
+Content-Type: multipart/form-data; boundary=WebAppBoundary
 
+--WebAppBoundary
+Content-Disposition: form-data; name="avatar"; filename="avatar.jpg"
+
+< ./test.http
+--WebAppBoundary--
