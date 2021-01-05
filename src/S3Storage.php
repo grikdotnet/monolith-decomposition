@@ -2,7 +2,6 @@
 
 namespace Acme;
 
-class User
+class S3Storage
 {
-    //...
 }
