@@ -3,17 +3,11 @@
 namespace Acme;
 
 /**
- * This class is coupled with a storage classes
+ * This class is coupled with storage classes
  *
  */
 class ImageLib
 {
-
-    public function __construct()
-    {
-
-    }
-
     public function store($type,$file)
     {
         //Select a storage solutions based on purpose

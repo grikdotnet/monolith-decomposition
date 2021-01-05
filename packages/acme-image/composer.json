@@ -1,7 +1,7 @@
 {
   "name": "acme/image",
   "description": "a demo module for splitting a monolith application",
-  "license": "proprietary",
+  "license": "MIT",
   "version": "0.1",
   "authors": [
     {
@@ -10,9 +10,7 @@
     }
   ],
   "require": {
-    "php": "^8.0",
-    "symfony/dependency-injection": "^5.2",
-    "acme/contracts": "0.1"
+    "symfony/dependency-injection": "^5.2"
   },
   "autoload": {
     "psr-4": {

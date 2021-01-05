@@ -5,16 +5,12 @@
         "php": "^8.0",
         "symfony/dependency-injection": "^5.2",
         "symfony/config": "^5.2",
-        "acme/image": "^0.1",
-        "acme/contracts": "0.1"
+        "acme/image": "^0.1@dev"
     },
     "autoload": {
         "psr-4": {
             "Acme\\": "src/"
-        },
-        "classmap": [
-            "src/BaseModel.php"
-        ]
+        }
     },
     "repositories": [
         {
